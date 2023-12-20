@@ -27,5 +27,7 @@ jobs:
         # pip install -r requirements.txt
 
     - name: Run a Python script
+      env:
+        MY_SECRET: ${{ secrets.MY_SECRET }}  # This line sets the secret as an environment variable
       run: |
         python hello_world.py  # Replace with your script's filename
