@@ -4,6 +4,9 @@ import time
 import base64
 import cv2
 import random
+URL1 = os.environ['URL1']
+URL2 = os.environ['URL2']
+REPO = os.environ['REPO']
 
 def capture_frame_with_retry(live_stream_url, output_image_path):
     retries = 3
@@ -29,12 +32,11 @@ def capture_frame(live_stream_url, output_image_path):
     cmd = f'ffmpeg -y -i "{video_url}" -vf "fps=1" -frames:v 1 {output_image_path}'
     subprocess.run(cmd, shell=True)
 
-live_stream_url = 'https://www.youtube.com/watch?v=qmRkvKo-KbQ'
-live_stream_url = 'https://www.youtube.com/live/qmRkvKo-KbQ?feature=share'
-live_stream_url = 'https://www.youtube.com/watch?v=YBSQJVc2skI'
+
+live_stream_url = URL1
 output_image_path = 'frame.jpg'
 
-url_2 = 'https://www.youtube.com/watch?v=uHue-U3ArfE'
+url_2 = URL2
 set_url = [live_stream_url,url_2]
 live_stream_url = random.choice(set_url)
 interval_seconds = 60  # Adjust the interval as needed
@@ -111,7 +113,7 @@ a.write(base64_string)
 a.close()
 
 # Set the repository URL and file path
-repo_url = "https://codeberg.org/shensunli/my_hash_test/"
+repo_url = REPO
 #os.chdir('/root/youtuber')
 os.system('git add readme.txt')
 os.system('git commit -m "Update readme"')
