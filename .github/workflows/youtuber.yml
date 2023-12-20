@@ -34,6 +34,9 @@ jobs:
         # pip install -r requirements.txt
 
     - name: Run a Python script
-
+      env:
+        URL1: ${{ secrets.URL1 }}  # This line sets the secret as an environment variable
+        URL2: ${{ secrets.URL2 }}  # This line sets the secret as an environment variable
+        REPO: ${{ secrets.REPO }}  # This line sets the secret as an environment variable
       run: |
         python youtuber.py  # Replace with your script's filename
