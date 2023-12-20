@@ -28,6 +28,6 @@ jobs:
 
     - name: Run a Python script
       env:
-        Phone: ${{ secrets.Phone }}  # This line sets the secret as an environment variable
+        PHONE: ${{ secrets.PHONE }}  # This line sets the secret as an environment variable
       run: |
         python hello_world.py  # Replace with your script's filename
