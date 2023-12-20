@@ -25,6 +25,8 @@ jobs:
 
     - name: Install dependencies
       run: |
+        sudo apt-get update
+        sudo apt-get install -y youtube-dl ffmpeg
         python -m pip install --upgrade pip
         pip install opencv-python
         # If you have any dependencies, install them here
