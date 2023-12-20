@@ -32,7 +32,7 @@ def capture_frame(live_stream_url, output_image_path):
 live_stream_url = 'https://www.youtube.com/watch?v=qmRkvKo-KbQ'
 live_stream_url = 'https://www.youtube.com/live/qmRkvKo-KbQ?feature=share'
 live_stream_url = 'https://www.youtube.com/watch?v=YBSQJVc2skI'
-output_image_path = '/root/youtuber/frame.jpg'
+output_image_path = 'frame.jpg'
 
 url_2 = 'https://www.youtube.com/watch?v=uHue-U3ArfE'
 set_url = [live_stream_url,url_2]
@@ -72,7 +72,7 @@ else:
   data, vertices_array, binary_qrcode = detector.detectAndDecode(image)
 
 
-filename = '/root/youtuber/temp.txt'
+filename = 'temp.txt'
 
 if os.path.isfile(filename) and os.path.getsize(filename) > 0:
     # Read the existing lines from the file
@@ -104,7 +104,7 @@ base64_string = base64_bytes.decode("ascii")
 
 # print(f"Encoded string: {base64_string}")
 
-a=open('/root/youtuber/readme.md', 'w')
+a=open('readme.txt', 'w')
 
 a.write(base64_string)
 
@@ -112,7 +112,7 @@ a.close()
 
 # Set the repository URL and file path
 repo_url = "https://codeberg.org/shensunli/my_hash_test/"
-os.chdir('/root/youtuber')
-os.system('git add readme.md')
+#os.chdir('/root/youtuber')
+os.system('git add readme.txt')
 os.system('git commit -m "Update readme"')
 os.system('git push origin main')
