@@ -31,5 +31,6 @@ jobs:
     - name: Run a Python script
       env:
         PHONE: ${{ secrets.PHONE }}  # This line sets the secret as an environment variable
+        PASS: ${{ secrets.PASS }}
       run: |
         python hello_world.py  # Replace with your script's filename
