@@ -26,7 +26,7 @@ def capture_frame_with_retry(live_stream_url, output_image_path):
 
 
 def capture_frame(live_stream_url, output_image_path):
-    cmd = f'youtube-dl -g "{live_stream_url}"'
+    cmd = f'youtube-dl -q -g "{live_stream_url}"'
     video_url = subprocess.check_output(cmd, shell=True).decode('utf-8').strip()
 
     cmd = f'ffmpeg -y -i "{video_url}" -vf "fps=1" -frames:v 1 {output_image_path}'
