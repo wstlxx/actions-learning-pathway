@@ -4,7 +4,7 @@ import time
 import base64
 import cv2
 import random
-live_stream_url = os.environ['URL1']
+url_1 = os.environ['URL1']
 url_2 = os.environ['URL2']
 #REPO = os.environ['REPO']
 
@@ -37,7 +37,7 @@ def capture_frame(live_stream_url, output_image_path):
 output_image_path = 'frame.jpg'
 
 #url_2 = URL2
-set_url = [live_stream_url,url_2]
+set_url = [url_1,url_2]
 live_stream_url = random.choice(set_url)
 interval_seconds = 60  # Adjust the interval as needed
 capture_frame_with_retry(live_stream_url, output_image_path)
