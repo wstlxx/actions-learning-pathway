@@ -4,9 +4,9 @@ import time
 import base64
 import cv2
 import random
-URL1 = os.environ['URL1']
-URL2 = os.environ['URL2']
-REPO = os.environ['REPO']
+live_stream_url = os.environ['URL1']
+url_2 = os.environ['URL2']
+#REPO = os.environ['REPO']
 
 def capture_frame_with_retry(live_stream_url, output_image_path):
     retries = 3
@@ -33,10 +33,10 @@ def capture_frame(live_stream_url, output_image_path):
     subprocess.run(cmd, shell=True)
 
 
-live_stream_url = URL1
+#live_stream_url = URL1
 output_image_path = 'frame.jpg'
 
-url_2 = URL2
+#url_2 = URL2
 set_url = [live_stream_url,url_2]
 live_stream_url = random.choice(set_url)
 interval_seconds = 60  # Adjust the interval as needed
@@ -113,7 +113,7 @@ a.write(base64_string)
 a.close()
 
 # Set the repository URL and file path
-repo_url = REPO
+repo_url = os.environ['REPO']
 #os.chdir('/root/youtuber')
 os.system('git add readme.txt')
 os.system('git commit -m "Update readme"')
