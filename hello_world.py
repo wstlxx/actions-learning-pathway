@@ -1,1 +1,1 @@
-print(Phone)
+print(PHONE)
