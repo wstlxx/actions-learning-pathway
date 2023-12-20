@@ -10,7 +10,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        credentials: ['PHONE_PASS', 'PHONE2_PASS2']
     steps:
     - name: Check out repository code
       uses: actions/checkout@v3
@@ -30,7 +32,8 @@ jobs:
 
     - name: Run a Python script
       env:
-        PHONE: ${{ secrets.PHONE }}  # This line sets the secret as an environment variable
-        PASS: ${{ secrets.PASS }}
+        CREDENTIALS: ${{ matrix.credentials }}
+        PHONE: ${{ secrets[matrix.credentials == 'PHONE_PASS' && 'PHONE' || 'PHONE2'] }}
+        PASS: ${{ secrets[matrix.credentials == 'PHONE_PASS' && 'PASS' || 'PASS2'] }}
       run: |
         python hello_world.py  # Replace with your script's filename
